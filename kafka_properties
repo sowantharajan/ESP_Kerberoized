@@ -1,0 +1,19 @@
+Producer:                   
+                 properties.setProperty("bootstrap.servers","10.55.xx.xx:9092");
+                 properties.setProperty("acks", "all");
+                 properties.setProperty("retries", "10");
+                 properties.setProperty("enable.idempotence", "true");
+                 properties.setProperty("transaction.timeout.ms", "259200000");
+                 properties.setProperty("max.request.size", "15000000");// latest,earliest
+
+
+Consumer:
+                 properties.setProperty("bootstrap.servers","10.55.xx.xx:9092");
+                 properties.setProperty("group.id", groupID+"newCluster");
+                 properties.setProperty("enable.auto.commit", "false");
+                 properties.setProperty("security.protocol", "SASL_PLAINTEXT");
+                 properties.setProperty("sasl.mechanism", "GSSAPI");
+                 properties.setProperty("sasl.kerberos.service.name", "kafka");
+                 properties.setProperty("sasl.jaas.config", "com.sun.security.auth.module.Krb5LoginModule required doNotPrompt=true useTicketCache=false useKeyTab=true keyTab=\"/etc/secrets/Sow32323.keytab\" principal=\"Sow32323@COMPANY.ONMICROSOFT.COM\" serviceName=\"kafka\";");
+                 properties.setProperty("auto.offset.reset", "earliest");// latest,earliest
+                 
